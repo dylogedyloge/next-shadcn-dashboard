@@ -6,66 +6,93 @@ import { DollarSign, Users, CreditCard, Activity } from "lucide-react";
 import Card, { CardContent, CardProps } from "@/components/Card";
 import BarChart from "@/components/BarChart";
 import SalesCard, { SalesProps } from "@/components/SalesCard";
+import { ToggleThemeButton } from "@/components/ToggleThemeButton";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
 
 const cardData: CardProps[] = [
   {
     label: "Total Revenue",
     amount: "$45,231.89",
     discription: "+20.1% from last month",
-    icon: DollarSign
+    icon: DollarSign,
   },
   {
     label: "Subscriptions",
     amount: "+2350",
     discription: "+180.1% from last month",
-    icon: Users
+    icon: Users,
   },
   {
     label: "Sales",
     amount: "+12,234",
     discription: "+19% from last month",
-    icon: CreditCard
+    icon: CreditCard,
   },
   {
     label: "Active Now",
     amount: "+573",
     discription: "+201 since last hour",
-    icon: Activity
-  }
+    icon: Activity,
+  },
 ];
 
 const uesrSalesData: SalesProps[] = [
   {
     name: "Olivia Martin",
     email: "olivia.martin@email.com",
-    saleAmount: "+$1,999.00"
+    saleAmount: "+$1,999.00",
   },
   {
     name: "Jackson Lee",
     email: "isabella.nguyen@email.com",
-    saleAmount: "+$1,999.00"
+    saleAmount: "+$1,999.00",
   },
   {
     name: "Isabella Nguyen",
     email: "isabella.nguyen@email.com",
-    saleAmount: "+$39.00"
+    saleAmount: "+$39.00",
   },
   {
     name: "William Kim",
     email: "will@email.com",
-    saleAmount: "+$299.00"
+    saleAmount: "+$299.00",
   },
   {
     name: "Sofia Davis",
     email: "sofia.davis@email.com",
-    saleAmount: "+$39.00"
-  }
+    saleAmount: "+$39.00",
+  },
 ];
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-5  w-full">
+      <Menubar>
+        <MenubarMenu>
+          <MenubarTrigger>File</MenubarTrigger>
+          <MenubarContent>
+            <MenubarItem>
+              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+            </MenubarItem>
+            <MenubarItem>New Window</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Share</MenubarItem>
+            <MenubarSeparator />
+            <MenubarItem>Print</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+
       <PageTitle title="Dashboard" />
+
       <section className="grid w-full grid-cols-1 gap-4 gap-x-8 transition-all sm:grid-cols-2 xl:grid-cols-4">
         {cardData.map((d, i) => (
           <Card
@@ -102,6 +129,7 @@ export default function Home() {
 
         {/*  */}
       </section>
+      <ToggleThemeButton />
     </div>
   );
 }
